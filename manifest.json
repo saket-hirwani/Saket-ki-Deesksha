@@ -1,0 +1,21 @@
+{
+  "name": "Saket ❤️ Deeksha | Wedding Invitation",
+  "short_name": "Saket & Deeksha",
+  "description": "Join Saket and Deeksha as they begin their beautiful journey together. 12 December 2026, Saptapadi Palace, Hanoda, Durg, Chhattisgarh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#C5A059",
+  "icons": [
+    {
+      "src": "/assets/icons/lotus.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/icons/lotus.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

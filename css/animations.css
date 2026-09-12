@@ -1,0 +1,79 @@
+/**
+ * Saket ❤️ Deeksha Wedding Invitation
+ * Animations & Motion Aesthetics
+ * Respects: prefers-reduced-motion
+ */
+
+/* Scroll reveal initial states */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Subtle floral petal drift */
+@keyframes floralDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6px, -8px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-floral-subtle {
+  animation: floralDrift 8s ease-in-out infinite;
+}
+
+/* Gentle gold shimmer */
+@keyframes subtleGoldShimmer {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.45)); }
+  100% { opacity: 0.8; }
+}
+
+.gold-shimmer {
+  animation: subtleGoldShimmer 4s ease-in-out infinite;
+}
+
+/* Equalizer sound bar wave */
+@keyframes soundBarWave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+/* Subtle breathing pulsation for key highlights */
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3.5s ease-in-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
