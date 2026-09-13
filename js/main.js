@@ -91,11 +91,17 @@ window.weddingConfig = weddingConfig;
   function syncUrlWithLanguage(lang) {
     try {
       var currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.set('lang', lang);
+      if (currentUrl.searchParams.get('lang') !== lang) {
+        currentUrl.searchParams.set('lang', lang);
 
-      // Keep address bar synced
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState({ lang: lang }, '', currentUrl.pathname + '?' + currentUrl.searchParams.toString() + currentUrl.hash);
+        // Keep address bar synced (safe check for iframe sandbox restrictions)
+        if (window.history && window.history.replaceState) {
+          try {
+            window.history.replaceState({ lang: lang }, '', currentUrl.pathname + '?' + currentUrl.searchParams.toString() + currentUrl.hash);
+          } catch (historyErr) {
+            // In restricted iframe preview environments (e.g. AI Studio preview), SecurityError may be thrown
+          }
+        }
       }
     } catch (e) {
       // Safe fallback
