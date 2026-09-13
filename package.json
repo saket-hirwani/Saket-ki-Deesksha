@@ -1,5 +1,6 @@
 {
   "name": "react-example",
+  "homepage": "https://saket-hirwani.github.io/saket-ki-deeksha",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,9 @@
     "build": "vite build && cp -r css js dist/",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
