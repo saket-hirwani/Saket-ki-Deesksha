@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+  <!-- Sacred Indian Lotus Motif -->
+  <g stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center petal -->
+    <path d="M50 18 C46 32 44 48 50 72 C56 48 54 32 50 18 Z" fill="currentColor" fill-opacity="0.12" />
+    <!-- Inner petals left & right -->
+    <path d="M50 32 C38 42 34 58 45 74 C47 58 48 44 50 32 Z" fill="currentColor" fill-opacity="0.08" />
+    <path d="M50 32 C62 42 66 58 55 74 C53 58 52 44 50 32 Z" fill="currentColor" fill-opacity="0.08" />
+    <!-- Outer petals -->
+    <path d="M46 48 C28 54 22 68 36 80 C40 68 44 58 46 48 Z" fill="currentColor" fill-opacity="0.05" />
+    <path d="M54 48 C72 54 78 68 64 80 C60 68 56 58 54 48 Z" fill="currentColor" fill-opacity="0.05" />
+    <!-- Base calyx / lotus leaf base -->
+    <path d="M25 82 C38 88 62 88 75 82 C65 80 35 80 25 82 Z" fill="currentColor" fill-opacity="0.2" />
+    <circle cx="50" cy="52" r="2.5" fill="currentColor" />
+  </g>
+</svg>
