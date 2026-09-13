@@ -2,5 +2,7 @@
   "name": "Saket ❤️ Deeksha Wedding Invitation",
   "description": "Sacred wedding celebration of Saket and Deeksha on 12 December 2026 at Saptapadi Palace, Hanoda, Durg, Chhattisgarh. View wedding celebrations, sacred mantras, timeline, and venue directions.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

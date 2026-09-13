@@ -16,8 +16,9 @@
   function getShareMessage() {
     var lang = (window.WeddingApp && window.WeddingApp.currentLang) || 'hi';
     var t = (window.translations && window.translations[lang]) || window.translations.hi || window.translations.en;
+    var domain = window.location.hostname || "saketkideeksha.in";
     return (t.sharing && t.sharing.shareMessage) || 
-      "॥ श्री गणेशाय नमः ॥\n🌸 साकेत संग दीक्षा — शुभ विवाह निमंत्रण 🌸\n\n12 दिसम्बर 2026 • सप्तपदी पैलेस, हनोदा, दुर्ग\n\nनिमंत्रण पत्र देखें:\nhttps://saketkideeksha.com/?lang=hi";
+      "॥ श्री गणेशाय नमः ॥\n🌸 साकेत संग दीक्षा — शुभ विवाह निमंत्रण 🌸\n\n12 दिसम्बर 2026 • सप्तपदी पैलेस, हनोदा, दुर्ग\n\nनिमंत्रण पत्र देखें:\nhttps://" + domain + "/?lang=hi";
   }
 
   function isMobileDevice() {
