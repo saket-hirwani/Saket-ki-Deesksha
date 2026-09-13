@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 
   <!-- SEO & Social Sharing Metadata -->
   <title>Saket ❤️ Deeksha | Wedding Invitation</title>
@@ -54,43 +54,50 @@
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
+      <!-- Quick Dismiss / Skip Button in Top-Right Corner for Instant Access on any mobile screen -->
+      <button id="quick-enter-top-btn" type="button" class="absolute top-2.5 right-2.5 z-20 text-[11px] font-medium px-2.5 py-1 rounded-full bg-[#FAF4EA] text-[#5C1D24] border border-[#C5A059]/50 hover:bg-[#F0E2CD] active:scale-95 transition-all shadow-xs flex items-center gap-1" aria-label="Skip to invitation content">
+        <span data-i18n="opening.skipBtn">Skip</span>
+        <span class="text-sm font-bold leading-none">&times;</span>
+      </button>
+
       <!-- Sacred Shree Ganesh at top of Opening Envelope -->
-      <div class="w-14 h-14 mx-auto mb-2">
+      <div class="envelope-ganesh-icon w-11 h-11 sm:w-14 sm:h-14 mx-auto mb-1.5 sm:mb-2">
         <img src="assets/icons/ganesh.svg" alt="Shree Ganesh" class="w-full h-full object-contain" />
       </div>
-      <p class="font-mantra text-xs sm:text-sm font-semibold tracking-widest text-[#5C1D24] mb-2" data-i18n="hero.ganeshInvocation">
+      <p class="font-mantra text-xs sm:text-sm font-semibold tracking-widest text-[#5C1D24] mb-1.5 sm:mb-2" data-i18n="hero.ganeshInvocation">
         ॥ श्री गणेशाय नमः ॥
       </p>
 
-      <!-- Wax Seal Emblem -->
-      <div class="wax-seal-emblem">
-        <span class="font-serif text-2xl font-bold tracking-widest">S&amp;D</span>
+      <!-- Wax Seal Emblem (Also tap-to-open on touchscreens) -->
+      <div id="wax-seal-open-trigger" class="wax-seal-emblem cursor-pointer transition-transform hover:scale-105 active:scale-95" role="button" tabindex="0" aria-label="Open Wedding Invitation Envelope" title="Tap to Open">
+        <span class="font-serif text-xl sm:text-2xl font-bold tracking-widest pointer-events-none">S&amp;D</span>
       </div>
 
-      <p class="text-xs uppercase tracking-[0.25em] text-[#8C7A5E] font-medium mb-2" data-i18n="opening.invitationFor">Together with their families</p>
+      <p class="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#8C7A5E] font-medium mb-1.5" data-i18n="opening.invitationFor">Together with their families</p>
       
-      <h1 class="font-couple text-2xl sm:text-3xl text-[#5C1D24] font-normal tracking-wider mb-2 leading-tight" data-i18n="opening.names">
+      <h1 class="font-couple text-xl sm:text-3xl text-[#5C1D24] font-normal tracking-wider mb-1.5 leading-tight" data-i18n="opening.names">
         SAKET &amp; DEEKSHA
       </h1>
 
-      <div class="gold-divider">
-        <img src="assets/icons/lotus.svg" alt="" class="w-5 h-5 opacity-70" />
+      <div class="gold-divider my-2">
+        <img src="assets/icons/lotus.svg" alt="" class="w-4 h-4 sm:w-5 sm:h-5 opacity-70" />
       </div>
 
-      <p class="text-sm text-[#6E6663] italic font-serif mb-4 max-w-xs mx-auto" data-i18n="opening.inviteText">
+      <p class="text-xs sm:text-sm text-[#6E6663] italic font-serif mb-3 max-w-xs mx-auto leading-relaxed" data-i18n="opening.inviteText">
         invite you to celebrate their special day
       </p>
 
-      <div class="inline-block py-1.5 px-4 rounded-full bg-[#FAF4EA] border border-[#E0D0B5] text-xs sm:text-sm tracking-[0.2em] font-medium text-[#7D5C28] mb-6" data-i18n="opening.dateFormatted">
+      <div class="inline-block py-1 px-3.5 sm:py-1.5 sm:px-4 rounded-full bg-[#FAF4EA] border border-[#E0D0B5] text-xs sm:text-sm tracking-[0.18em] font-medium text-[#7D5C28] mb-4 sm:mb-6" data-i18n="opening.dateFormatted">
         12 • 12 • 2026
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button id="enter-invitation-btn" type="button" class="btn-primary w-full sm:w-auto text-base">
+      <!-- Action Buttons with guaranteed 48px touch targets and clear resolution on all mobile screens -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full">
+        <button id="enter-invitation-btn" type="button" class="btn-primary w-full sm:w-auto text-base !min-h-[48px] !px-6 shadow-md active:scale-98">
           <span data-i18n="opening.enterBtn">Enter Invitation</span>
           <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
-        <button id="skip-opening-btn" type="button" class="text-xs tracking-wider uppercase text-[#8C7A5E] hover:text-[#5C1D24] py-2 px-3 transition-colors" data-i18n="opening.skipBtn">
+        <button id="skip-opening-btn" type="button" class="text-xs tracking-wider uppercase text-[#8C7A5E] hover:text-[#5C1D24] py-2 px-3 transition-colors min-h-[44px] flex items-center justify-center" data-i18n="opening.skipBtn">
           Skip
         </button>
       </div>
@@ -103,12 +110,12 @@
   <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Monogram Brand Link -->
-      <a href="#hero" class="group flex items-center gap-2 text-decoration-none">
-        <div class="w-8 h-8 rounded-full bg-[#FAF4EA] border border-[#C5A059]/40 flex items-center justify-center text-[#5C1D24] font-serif font-bold text-sm shadow-sm transition-transform group-hover:scale-105">
+      <a href="#hero" class="group flex items-center gap-1.5 sm:gap-2 text-decoration-none shrink-0">
+        <div class="w-8 h-8 rounded-full bg-[#FAF4EA] border border-[#C5A059]/40 flex items-center justify-center text-[#5C1D24] font-serif font-bold text-xs sm:text-sm shadow-sm transition-transform group-hover:scale-105">
           S&amp;D
         </div>
-        <span class="font-serif text-lg sm:text-xl font-medium tracking-wide text-[#2B2625] group-hover:text-[#5C1D24] transition-colors">
-          Saket <span class="text-[#8C232C] text-sm">❤️</span> Deeksha
+        <span class="font-serif text-base sm:text-xl font-medium tracking-wide text-[#2B2625] group-hover:text-[#5C1D24] transition-colors truncate max-w-[125px] sm:max-w-none">
+          Saket <span class="text-[#8C232C] text-xs sm:text-sm">❤️</span> Deeksha
         </span>
       </a>
 
@@ -123,16 +130,16 @@
       </nav>
 
       <!-- Language Selector & Mobile Hamburger -->
-      <div class="flex items-center gap-2 sm:gap-4">
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
         <!-- 28. Language Selector हिंदी | EN | छत्तीसगढ़ी -->
         <div class="flex items-center p-0.5 rounded-full bg-[#F2EBE0] border border-[#D9CAAF]/60 text-xs font-medium" role="group" aria-label="Language Selector">
-          <button type="button" class="lang-btn active px-2.5 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="hi">हिंदी</button>
-          <button type="button" class="lang-btn px-2.5 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="en">EN</button>
-          <button type="button" class="lang-btn px-2.5 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="cg">छत्तीसगढ़ी</button>
+          <button type="button" class="lang-btn active px-2 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="hi">हिंदी</button>
+          <button type="button" class="lang-btn px-2 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="en">EN</button>
+          <button type="button" class="lang-btn px-2 sm:px-3 py-1 rounded-full transition-all text-xs font-semibold" data-lang="cg">छग<span class="hidden sm:inline">त्तीसगढ़ी</span></button>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" type="button" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-white/80 border border-[#C5A059]/40 text-[#2B2625] focus:outline-none" aria-label="Toggle mobile menu">
+        <!-- Mobile Menu Toggle Button (44x44 mobile touch standard) -->
+        <button id="mobile-menu-toggle" type="button" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-white/90 border border-[#C5A059]/40 text-[#2B2625] active:scale-95 transition-transform focus:outline-none" aria-label="Toggle mobile menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
         </button>
       </div>
@@ -595,12 +602,11 @@
                 An afternoon of intricate henna motifs, joyous music, and kaleidoscopic celebration.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#E8DFC9] flex items-center justify-between text-xs">
-              <span class="text-[#8C7A5E] truncate" data-i18n="events.mehendi.venue">Saptapadi Palace, Hanoda</span>
-              <div class="flex items-center gap-1.5">
-                <button type="button" data-calendar-event="mehendi" data-calendar-type="google" class="text-[#5C1D24] hover:underline font-medium">Google</button>
-                <span class="text-[#8C7A5E]">|</span>
-                <button type="button" data-calendar-event="mehendi" data-calendar-type="ics" class="text-[#5C1D24] hover:underline font-medium">.ics</button>
+            <div class="pt-4 border-t border-[#E8DFC9] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="text-[#8C7A5E] truncate max-w-[50%]" data-i18n="events.mehendi.venue">Saptapadi Palace, Hanoda</span>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" data-calendar-event="mehendi" data-calendar-type="google" class="calendar-pill-btn" aria-label="Add Mehendi to Google Calendar">Google</button>
+                <button type="button" data-calendar-event="mehendi" data-calendar-type="ics" class="calendar-pill-btn" aria-label="Download Mehendi .ics file">.ics</button>
               </div>
             </div>
           </div>
@@ -626,12 +632,11 @@
                 An enchanting evening of vibrant family dance performances, melodies, and joyous celebration.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#E8DFC9] flex items-center justify-between text-xs">
-              <span class="text-[#8C7A5E] truncate" data-i18n="events.sangeet.venue">Saptapadi Palace, Hanoda</span>
-              <div class="flex items-center gap-1.5">
-                <button type="button" data-calendar-event="sangeet" data-calendar-type="google" class="text-[#5C1D24] hover:underline font-medium">Google</button>
-                <span class="text-[#8C7A5E]">|</span>
-                <button type="button" data-calendar-event="sangeet" data-calendar-type="ics" class="text-[#5C1D24] hover:underline font-medium">.ics</button>
+            <div class="pt-4 border-t border-[#E8DFC9] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="text-[#8C7A5E] truncate max-w-[50%]" data-i18n="events.sangeet.venue">Saptapadi Palace, Hanoda</span>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" data-calendar-event="sangeet" data-calendar-type="google" class="calendar-pill-btn" aria-label="Add Sangeet to Google Calendar">Google</button>
+                <button type="button" data-calendar-event="sangeet" data-calendar-type="ics" class="calendar-pill-btn" aria-label="Download Sangeet .ics file">.ics</button>
               </div>
             </div>
           </div>
@@ -656,12 +661,11 @@
                 Basking in the golden warmth of turmeric paste, floral sprinkles, laughter, and pious blessings.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#E8DFC9] flex items-center justify-between text-xs">
-              <span class="text-[#8C7A5E] truncate" data-i18n="events.haldi.venue">Saptapadi Palace, Hanoda</span>
-              <div class="flex items-center gap-1.5">
-                <button type="button" data-calendar-event="haldi" data-calendar-type="google" class="text-[#5C1D24] hover:underline font-medium">Google</button>
-                <span class="text-[#8C7A5E]">|</span>
-                <button type="button" data-calendar-event="haldi" data-calendar-type="ics" class="text-[#5C1D24] hover:underline font-medium">.ics</button>
+            <div class="pt-4 border-t border-[#E8DFC9] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="text-[#8C7A5E] truncate max-w-[50%]" data-i18n="events.haldi.venue">Saptapadi Palace, Hanoda</span>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" data-calendar-event="haldi" data-calendar-type="google" class="calendar-pill-btn" aria-label="Add Haldi to Google Calendar">Google</button>
+                <button type="button" data-calendar-event="haldi" data-calendar-type="ics" class="calendar-pill-btn" aria-label="Download Haldi .ics file">.ics</button>
               </div>
             </div>
           </div>
@@ -699,11 +703,11 @@
                 The sacred saat phere around the holy fire as Saket &amp; Deeksha unite in eternal love and companionship.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#E8DFC9] flex items-center justify-between">
+            <div class="pt-4 border-t border-[#E8DFC9] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <span class="text-xs text-[#8C7A5E]" data-i18n="events.wedding.venue">Saptapadi Palace, Hanoda</span>
-              <div class="flex items-center gap-2">
-                <button type="button" data-calendar-event="wedding" data-calendar-type="google" class="btn-outline !min-h-[38px] !py-1 !px-3.5 !text-xs" data-i18n="events.googleCalendar">Google Calendar</button>
-                <button type="button" data-calendar-event="wedding" data-calendar-type="ics" class="btn-outline !min-h-[38px] !py-1 !px-3.5 !text-xs" data-i18n="events.downloadIcs">Download .ics</button>
+              <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                <button type="button" data-calendar-event="wedding" data-calendar-type="google" class="calendar-pill-btn flex-1 sm:flex-initial text-center justify-center !min-h-[40px] !px-4" data-i18n="events.googleCalendar">Google Calendar</button>
+                <button type="button" data-calendar-event="wedding" data-calendar-type="ics" class="calendar-pill-btn flex-1 sm:flex-initial text-center justify-center !min-h-[40px] !px-4" data-i18n="events.downloadIcs">Download .ics</button>
               </div>
             </div>
           </div>
@@ -729,13 +733,13 @@
                 An evening of celebration, delicious feast, and congratulations with our newlywed couple.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#E8DFC9] flex items-center justify-between text-xs">
-              <span class="text-[#8C7A5E] truncate" data-i18n="events.reception.venue">Saptapadi Palace, Hanoda</span>
-              <div class="flex items-center gap-1.5">
-                <button type="button" data-calendar-event="reception" data-calendar-type="google" class="text-[#5C1D24] hover:underline font-medium">Google</button>
-                <span class="text-[#8C7A5E]">|</span>
-                <button type="button" data-calendar-event="reception" data-calendar-type="ics" class="text-[#5C1D24] hover:underline font-medium">.ics</button>
+            <div class="pt-4 border-t border-[#E8DFC9] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="text-[#8C7A5E] truncate max-w-[50%]" data-i18n="events.reception.venue">Saptapadi Palace, Hanoda</span>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" data-calendar-event="reception" data-calendar-type="google" class="calendar-pill-btn" aria-label="Add Reception to Google Calendar">Google</button>
+                <button type="button" data-calendar-event="reception" data-calendar-type="ics" class="calendar-pill-btn" aria-label="Download Reception .ics file">.ics</button>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -784,16 +788,16 @@
               Conveniently situated in Hanoda on Bosri Hanoda Road, Durg, with ample guest parking.
             </p>
 
-            <!-- Prominent "Get Directions" Button (opens Google Maps URL in new tab) -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button id="get-directions-btn" type="button" class="btn-primary text-base">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            <!-- Prominent "Get Directions" Button (opens Google Maps URL in new tab / Maps app) -->
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
+              <a id="get-directions-btn" href="https://maps.app.goo.gl/GNADEw5rV7HUUakZ6" target="_blank" rel="noopener noreferrer" class="btn-primary text-base w-full sm:w-auto text-center justify-center !min-h-[48px] shadow-sm">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
                 <span data-i18n="venue.getDirections">Get Directions</span>
-              </button>
+              </a>
 
-              <button id="open-maps-btn" type="button" class="btn-outline text-base">
+              <a id="open-maps-btn" href="https://maps.app.goo.gl/GNADEw5rV7HUUakZ6" target="_blank" rel="noopener noreferrer" class="btn-outline text-base w-full sm:w-auto text-center justify-center !min-h-[48px]">
                 <span data-i18n="venue.openMaps">Open Google Maps</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -815,16 +819,16 @@
 
             <!-- Dynamically generated QR Code Canvas -->
             <div class="p-3 bg-white rounded-xl border border-[#C5A059]/40 shadow-md inline-block mb-4">
-              <canvas id="venue-qr-canvas" width="240" height="240" class="mx-auto"></canvas>
+              <canvas id="venue-qr-canvas" width="240" height="240" class="mx-auto max-w-full h-auto"></canvas>
             </div>
 
             <!-- Small Open Google Maps & Save QR buttons -->
-            <div class="flex flex-col gap-2 mt-2">
-              <a href="https://maps.app.goo.gl/GNADEw5rV7HUUakZ6" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#5C1D24] hover:underline flex items-center justify-center gap-1">
+            <div class="flex flex-col gap-2 mt-2 w-full">
+              <a href="https://maps.app.goo.gl/GNADEw5rV7HUUakZ6" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#5C1D24] hover:underline flex items-center justify-center gap-1 min-h-[40px] py-1">
                 <span data-i18n="venue.openMaps">Open Google Maps</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
-              <button id="save-qr-btn" type="button" class="text-xs text-[#8C7A5E] hover:text-[#5C1D24] underline py-1" data-i18n="venue.saveQr">
+              <button id="save-qr-btn" type="button" class="text-xs text-[#8C7A5E] hover:text-[#5C1D24] underline min-h-[40px] py-1 flex items-center justify-center" data-i18n="venue.saveQr">
                 Save QR Code
               </button>
             </div>

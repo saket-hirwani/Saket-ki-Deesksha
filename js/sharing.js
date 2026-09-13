@@ -20,11 +20,20 @@
       "॥ श्री गणेशाय नमः ॥\n🌸 साकेत संग दीक्षा — शुभ विवाह निमंत्रण 🌸\n\n12 दिसम्बर 2026 • सप्तपदी पैलेस, हनोदा, दुर्ग\n\nनिमंत्रण पत्र देखें:\nhttps://saketkideeksha.com/?lang=hi";
   }
 
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
+  }
+
   function shareOnWhatsApp() {
     var message = getShareMessage();
     var encoded = encodeURIComponent(message);
     var url = 'https://api.whatsapp.com/send?text=' + encoded;
-    window.open(url, '_blank', 'noopener,noreferrer');
+
+    if (isMobileDevice()) {
+      window.location.href = url;
+    } else {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   }
 
   function shareNativeOrWhatsApp() {
@@ -85,7 +94,8 @@
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'share-toast';
-      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#1E1B18] text-white px-5 py-3 rounded-full text-sm font-medium shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none flex items-center gap-2 border border-[#C5A059]/40';
+      toast.className = 'fixed left-1/2 -translate-x-1/2 z-50 bg-[#1E1B18] text-white px-5 py-3 rounded-full text-sm font-medium shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none flex items-center gap-2 border border-[#C5A059]/40';
+      toast.style.bottom = 'max(24px, calc(16px + env(safe-area-inset-bottom, 16px)))';
       document.body.appendChild(toast);
     }
 

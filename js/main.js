@@ -255,14 +255,22 @@ window.weddingConfig = weddingConfig;
     var overlay = document.getElementById('invitation-opening-screen');
     var enterBtn = document.getElementById('enter-invitation-btn');
     var skipBtn = document.getElementById('skip-opening-btn');
+    var quickBtn = document.getElementById('quick-enter-top-btn');
+    var sealTrigger = document.getElementById('wax-seal-open-trigger');
+
+    var hasEntered = false;
 
     function closeOpening(startMusic) {
-      if (!overlay) return;
+      if (!overlay || hasEntered) return;
+      hasEntered = true;
+
+      // Unlock body scrolling immediately
+      document.body.classList.remove('overflow-hidden');
       overlay.classList.add('opening-unfold-exit');
+
       setTimeout(function () {
         overlay.style.display = 'none';
-        document.body.classList.remove('overflow-hidden');
-      }, 700);
+      }, 650);
 
       if (startMusic && window.WeddingMusic) {
         window.WeddingMusic.play();
@@ -270,16 +278,56 @@ window.weddingConfig = weddingConfig;
     }
 
     if (enterBtn) {
-      enterBtn.addEventListener('click', function () {
+      enterBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
         closeOpening(true);
       });
     }
 
     if (skipBtn) {
-      skipBtn.addEventListener('click', function () {
+      skipBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
         closeOpening(false);
       });
     }
+
+    if (quickBtn) {
+      quickBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeOpening(false);
+      });
+    }
+
+    if (sealTrigger) {
+      sealTrigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeOpening(true);
+      });
+      sealTrigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeOpening(true);
+        }
+      });
+    }
+
+    // Dismiss if tapping the outer backdrop area
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          closeOpening(true);
+        }
+      });
+    }
+
+    // Keyboard support: Escape or Enter
+    document.addEventListener('keydown', function (e) {
+      if (overlay && overlay.style.display !== 'none') {
+        if (e.key === 'Escape') {
+          closeOpening(false);
+        }
+      }
+    });
 
     // Prevent body scroll during opening screen
     if (overlay && overlay.style.display !== 'none') {
@@ -448,16 +496,13 @@ window.weddingConfig = weddingConfig;
     var openMapsBtn = document.getElementById('open-maps-btn');
     var saveQrBtn = document.getElementById('save-qr-btn');
 
-    if (directionsBtn) {
-      directionsBtn.addEventListener('click', function () {
-        window.open(weddingConfig.mapsUrl, '_blank', 'noopener,noreferrer');
-      });
-    }
+    var mapsUrl = (window.weddingConfig && window.weddingConfig.mapsUrl) || 'https://maps.app.goo.gl/GNADEw5rV7HUUakZ6';
 
-    if (openMapsBtn) {
-      openMapsBtn.addEventListener('click', function () {
-        window.open(weddingConfig.mapsUrl, '_blank', 'noopener,noreferrer');
-      });
+    if (directionsBtn && directionsBtn.tagName === 'A') {
+      directionsBtn.href = mapsUrl;
+    }
+    if (openMapsBtn && openMapsBtn.tagName === 'A') {
+      openMapsBtn.href = mapsUrl;
     }
 
     if (saveQrBtn && window.WeddingQR) {

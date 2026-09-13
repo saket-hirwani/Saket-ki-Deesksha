@@ -343,26 +343,29 @@ h1, h2, h3, h4, .font-serif {
 /* Floating Music Button */
 .floating-music-btn {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  right: max(16px, env(safe-area-inset-right, 16px));
   z-index: 40;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.92);
+  gap: 7px;
+  padding: 8px 14px;
+  min-height: 42px;
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--color-gold-champagne);
   border-radius: 9999px;
-  box-shadow: 0 8px 24px rgba(92, 29, 36, 0.12);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(92, 29, 36, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
-  transition: all 0.3s ease;
+  touch-action: manipulation;
+  transition: all 0.25s ease;
 }
 
-.floating-music-btn:hover {
+.floating-music-btn:hover, .floating-music-btn:active {
   background: #FFFFFF;
   transform: scale(1.04);
-  box-shadow: 0 10px 30px rgba(92, 29, 36, 0.18);
+  box-shadow: 0 10px 28px rgba(92, 29, 36, 0.2);
 }
 
 .sound-wave {
@@ -385,43 +388,80 @@ h1, h2, h3, h4, .font-serif {
 .animating .sound-bar:nth-child(3) { animation: soundBarWave 1.4s infinite 0.4s ease-in-out; }
 .animating .sound-bar:nth-child(4) { animation: soundBarWave 0.9s infinite 0.1s ease-in-out; }
 
+/* Calendar Pill Buttons - Thumb friendly touch target across iOS & Android */
+.calendar-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 6px 13px;
+  border-radius: 9999px;
+  background: #FAF4EA;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: #5C1D24;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+  box-shadow: 0 1px 3px rgba(92, 29, 36, 0.06);
+}
+
+.calendar-pill-btn:hover, .calendar-pill-btn:active {
+  background: #5C1D24;
+  color: #FFFFFF;
+  border-color: #5C1D24;
+  transform: scale(1.02);
+}
+
 /* ==================================================
    4. OPENING INVITATION MODAL / OVERLAY
+   Accessible & Scrollable on ALL mobile screen resolutions
    ================================================== */
 #invitation-opening-screen {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
   z-index: 99999;
   background: linear-gradient(145deg, #FAF6F0 0%, #F5EAE6 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: flex-start;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: max(0.85rem, env(safe-area-inset-top, 14px)) max(0.85rem, env(safe-area-inset-right, 14px)) max(2.5rem, calc(1.5rem + env(safe-area-inset-bottom, 24px))) max(0.85rem, env(safe-area-inset-left, 14px));
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .opening-unfold-exit {
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.04);
   pointer-events: none;
 }
 
 .royal-envelope-card {
   width: 100%;
   max-width: 480px;
+  margin: auto;
   background: #FFFFFF;
   border-radius: 20px;
-  padding: 2.5rem 2rem;
+  padding: clamp(1.25rem, 3.5vh, 2.5rem) clamp(1rem, 4vw, 2rem);
   text-align: center;
   box-shadow: 0 20px 60px -10px rgba(92, 29, 36, 0.18);
   border: 1px solid var(--color-border-gold);
   position: relative;
+  flex-shrink: 0;
 }
 
 .wax-seal-emblem {
-  width: 68px;
-  height: 68px;
-  margin: 0 auto 1.5rem;
+  width: clamp(52px, 8vh, 66px);
+  height: clamp(52px, 8vh, 66px);
+  margin: 0.25rem auto 1rem;
   background: radial-gradient(circle, #7D2630 0%, #5C1D24 100%);
   border-radius: 50%;
   display: flex;
@@ -430,6 +470,7 @@ h1, h2, h3, h4, .font-serif {
   box-shadow: 0 6px 16px rgba(92, 29, 36, 0.35);
   border: 2px solid rgba(197, 160, 89, 0.5);
   color: #F7E7C4;
+  touch-action: manipulation;
 }
 
 /* ==================================================
